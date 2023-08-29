@@ -22,6 +22,7 @@ rep_time : Reporting time for examination (To be filled by CEO)**
 based on their second choices and find the final candidate count of each district.
 
 **Stage Two: Preparation of Database**
+
 In each examination centre, the exam is to be organized in two shifts batch I & batch II(reporting time 9:00 AM & 2 PM). The exam can be conducted any number of days in a city from
 September 1-30, 2023 depending upon the number of candidates in a city. Note in each city only one examination centre is possible and in one shift a maximum 20 students can appear.
 
