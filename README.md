@@ -1,7 +1,7 @@
 # Data Science Module - Portfolio Project 
 
-You are a Controller of Examination (COE) in an Examination body that regularly organizes an online examination. As a part of your reasonability, you need to generate various reports from the database. Your task is to automate the entire process using pandas. Details of the database are as
-follows:
+You are a Controller of Examination (COE) in an Examination body that regularly organizes an online examination. As a part of your reasonability, you need to generate various reports from the database. Your task is to automate the entire process using pandas. Details of the database are as follows: 
+
 **Application_ID : ID of applicant
 D_O_B : Date of Birth
 Sex : Gender of Candidate
@@ -27,6 +27,7 @@ In each examination centre, the exam is to be organized in two shifts batch I & 
 September 1-30, 2023 depending upon the number of candidates in a city. Note in each city only one examination centre is possible and in one shift a maximum 20 students can appear.
 
 **Based on the information mentioned above complete the examination database by allocating:**
+
           -> Rollno: Roll number of the candidate will start from NL2000001 onwards(eg:NL2000001,NL2000002,NL2000003……).
           -> cent_allot : allocate center by putting examination city code.
           -> cent_add: put NIELIT <District Name> as the center address in each location (for eg if the district name is ADI then the centre add is NIELIT ADI).
