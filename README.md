@@ -2,19 +2,19 @@
 
 You are a Controller of Examination (COE) in an Examination body that regularly organizes an online examination. As a part of your reasonability, you need to generate various reports from the database. Your task is to automate the entire process using pandas. Details of the database are as follows: 
 
-Application_ID: ID of the applicant
-D_O_B: Date of Birth
-Sex: Gender of Candidate
-H_Qual: The highest qualification of the candidate
-TH_CENT_CH: First choice of examination city
-SEC_TH_CEN: Second Choice of Examination City
-CATEGORY: Category of student
-Rollno: Roll Number of the candidate (To be filled by CEO)
-cent_allot: Examination center district (To be filled by CEO)
-cent_add: Examination Centre Address (To be filled by CEO)
-exam date : Examination Date (To be filled by CEO)
-batch: Allotted batch on examination Date (To be filled by CEO)
-rep_time: Reporting time for examination (To be filled by CEO)
+           -> Application_ID: ID of the applicant
+           -> D_O_B: Date of Birth
+           -> Sex: Gender of Candidate
+           -> H_Qual: The highest qualification of the candidate
+           -> TH_CENT_CH: First choice of examination city
+           -> SEC_TH_CEN: Second Choice of Examination City
+           -> CATEGORY: Category of student
+           -> Rollno: Roll Number of the candidate (To be filled by CEO)
+           -> cent_allot: Examination center district (To be filled by CEO)
+           -> cent_add: Examination Centre Address (To be filled by CEO)
+           -> exam date : Examination Date (To be filled by CEO)
+           -> batch: Allotted batch on examination Date (To be filled by CEO)
+           -> rep_time: Reporting time for examination (To be filled by CEO)
 
 **Stage One: Finalization of Candidate Count**
 1. Calculate the Candidate count in each district based on the first choice of examination city.
