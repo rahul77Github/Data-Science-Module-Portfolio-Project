@@ -39,3 +39,87 @@ Write an appropriate program to complete the aforementioned task. Sample filled 
 Rollno| cent_allot| cent_add| exam date| batch| rep_time
 ------|-----------|---------|----------|------|---------|
 NL2000001| CHN| NIELIT CHN| 01-12-2020| 1| 9:00 AM
+
+# Solution starts here
+
+           import pandas as pd
+           from datetime import datetime, timedelta
+           import random
+
+           # Load the dataset (assuming the dataset is named 'data.csv')
+           data = pd.read_csv('examdatabase.csv')
+           data.head(10)
+           
+           # Calculate candidate count in each district based on first choice of examination city
+           district_candidate_count = data['TH_CENT_CH'].value_counts()
+           district_candidate_count
+
+           # Adjust candidates to other districts based on second choices
+           def adjust_candidates(row):
+               if row['TH_CENT_CH'] in district_candidate_count:
+                   return row['TH_CENT_CH']
+               elif row['SEC_TH_CEN'] in district_candidate_count:
+                   return row['SEC_TH_CEN']
+               else:
+                   return None
+               data['Final_Cent'] = data.apply(adjust_candidates, axis=1)
+            data.head()
+
+            # Create a mapping of examination city codes to district names
+           city_district_mapping = {
+               'WGL': 'WGL',
+               'MAHB': 'MAHB',
+               'KUN': 'KUN',
+               'GUN' : 'GUN',
+               'KARN' : 'KARN',
+               'KRS' : 'KRS',
+               'CTT' : 'CTT',
+               'VIZ' : 'VIZ',
+               'PRA' : 'PRA',
+               'NALG' : 'NALG',
+               'MED' : 'MED',
+               'ADI' : 'ADI',
+               'KPM' : 'KPM',
+               'ANA' : 'ANA',
+               'TRI': 'TRI',
+               'KHAM' : 'KHAM',
+               'NEL' : 'NEL',
+               'SOA' : 'SOA',
+               'VIZI' : 'VIZI',
+               'EGOD' : 'EGOD',
+               'SIR' : 'SIR',
+               'NIZA' : 'NIZA',
+               'PUD' : 'PUD',
+               'KRK' : 'KRK',
+               'WGOD' : 'WGOD',
+               'VIJ' : 'VIJ',
+               'PNI' : 'PNI'
+               # Adding more mappings as needed
+           }
+
+           # Allocate candidates to examination centers and shifts
+           def allocate_centers(row):
+               district = city_district_mapping[row['Final_Cent']]
+               row['cent_allot'] = row['Final_Cent']
+               row['cent_add'] = f'NIELIT {district}'
+               return row
+
+           data = data.apply(allocate_centers, axis=1)
+
+           # Allocate examDate, batch, and rep_time
+           start_date = datetime(2023, 9, 1)
+           end_date = datetime(2023, 9, 30)
+           date_range = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
+
+           def allocate_exam_info(row):
+               row['Rollno'] = f'NL{2000000 + row.name + 1}'
+               row['examDate'] = random.choice(date_range).strftime('%d-%m-%Y')
+               row['batch'] = random.choice([1, 2])
+               row['rep_time'] = '9:00 AM' if row['batch'] == 1 else '2:00 PM'
+               return row
+           data = data.apply(allocate_exam_info, axis=1)
+
+           # Save the final examination database to a CSV file
+           data[['Rollno', 'cent_allot', 'cent_add', 'examDate', 'batch', 'rep_time']].to_csv('exam_database.csv', index=False)
+           
+           
