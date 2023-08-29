@@ -36,5 +36,5 @@ September 1-30, 2023 depending upon the number of candidates in a city. Note tha
           -> rep_time: For batch I reporting time is 9 AM and for batch II reporting time is 2 PM.
 
 Write an appropriate program to complete the aforementioned task. Sample filled database is shown below:
-Rollno, cent_allot, cent_add, exam date, batch, rep_time
-NL2000001, CHN, NIELIT CHN, 01-12-2020, 1, 9:00 AM
+Rollno| cent_allot| cent_add| exam date| batch| rep_time
+NL2000001| CHN| NIELIT CHN| 01-12-2020| 1| 9:00 AM
